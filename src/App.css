@@ -14,17 +14,6 @@ body {
 	padding: 0;
 }
 
-/* window {
-	overflow-y: auto;
-} */
-
-/* body, */
-/* html {
-	overflow-x: hidden; */
-/* overflow-y: auto; */
-/* scroll-behavior: smooth; yoki smooth */
-/* } */
-/* ? local fonts */
 @font-face {
 	font-family: 'MyCustomFont';
 	src: url('./font/PowerGrotesk-Regular.otf'),
@@ -86,6 +75,10 @@ body {
 	font-size: 48px;
 	font-weight: 400;
 }
+.sa{
+	padding: 1px;
+}
+
 button,
 .button {
 	font-family: 'MyCustomFont', sans-serif;

@@ -31,6 +31,18 @@ function App() {
 
   return (
     <>
+<ToastContainer
+  position="top-right"
+  autoClose={3000}
+  newestOnTop
+  closeOnClick
+  pauseOnFocusLoss={false}
+  draggable
+  pauseOnHover
+  theme="light"
+/>
+
+
       <ScrollToTop />
       <Header />
 
@@ -49,16 +61,6 @@ function App() {
 
       <Footer />
 
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        newestOnTop
-        closeOnClick
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 }
