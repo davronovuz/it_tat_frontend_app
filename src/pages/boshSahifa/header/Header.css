@@ -19,15 +19,6 @@ header {
 	justify-content: space-between;
 	gap: 10px;
 }
-/* .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-} */
 
 .hed_max > img,
 .footer_logo {
