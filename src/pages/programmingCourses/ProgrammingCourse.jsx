@@ -121,8 +121,9 @@ const ProgrammingCourse = () => {
 											{courseById?.duration_hours} soat
 										</h2>
 										<h2 className='font-size-40 course_inform_6_child'>
-											{courseById?.price_per_month} so`m
+  											{Number(courseById?.price_per_month).toLocaleString('uz-UZ')} so‘m
 										</h2>
+
 										<button
 											onClick={() => setIsModalOpen(true)}
 											className='course_inform_button res-none'
