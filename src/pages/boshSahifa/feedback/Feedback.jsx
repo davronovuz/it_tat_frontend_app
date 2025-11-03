@@ -26,7 +26,7 @@ const Feedback = () => {
 	const videosArray = Array.isArray(feedbak_video)
 		? feedbak_video
 		: Object.values(feedbak_video || {})
-
+	
 	return (
 		<div className='background'>
 			<div className='max-width'>

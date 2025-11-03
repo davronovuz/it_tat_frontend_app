@@ -110,7 +110,7 @@ const Courses = () => {
 		<div className='background_blue'>
 			<div className='max-width'>
 				<menu>
-					<h2 className='font-size-40'>Bizning </h2>
+					<h2 className='font-size-40'>Bizning kurslarimiz </h2>
 					<div className='menu'>
 						{courseList?.map(inform => (
 							<div

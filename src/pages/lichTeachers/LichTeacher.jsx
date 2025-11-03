@@ -1,58 +1,52 @@
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Modal } from 'antd'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import './LichTeacher.css'
 
-// ? img
+import Loading from '../../Loading'
+import useFatch from '../../components/useFatch'
 
+// ? images
 import alitalia from '../../assets/alitalia.png'
 import axon from '../../assets/axon.png'
 import expedia from '../../assets/expedia.png'
 import jetstar from '../../assets/jetstar.png'
 import qantas from '../../assets/qoantas.png'
 
-// ? video
-import lesson_video from '../../assets/it-tatni-tanishtirish.mp4'
+import fikrImgOne from '../../assets/oquvchi-bir.png'
+import fikrImgTwoo from '../../assets/oquvchi-ikki.png'
+import fikrImgThree from '../../assets/oquvchi-uch.png'
+import fikrImgFour from '../../assets/oquvchi-tort.png'
 
-// ? swiper
-import { Modal } from 'antd'
-import 'swiper/css'
-import 'swiper/css/pagination'
-import { Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import Loading from '../../Loading'
-import useFatch from '../../components/useFatch'
+const fikrlar = [fikrImgOne, fikrImgTwoo, fikrImgThree, fikrImgFour]
 
 const LichTeacher = () => {
-	let navigate = useNavigate()
-
-	let [loading, setLoading] = useState(true)
-
+	const navigate = useNavigate()
 	const { id } = useParams()
 
-	// ? title ni o`zgartirish
+	const [loading, setLoading] = useState(true)
+	const [swiperInstance, setSwiperInstance] = useState(null)
+	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [activeVideo, setActiveVideo] = useState(null)
+	const videoRef = useRef(null)
+
 	useEffect(() => {
 		document.title = 'Ustoz'
-		let timer = setTimeout(() => setLoading(false), 1000)
+		const timer = setTimeout(() => setLoading(false), 1000)
 		return () => clearTimeout(timer)
 	}, [])
 
-	const swiperRef = useRef(null)
-	console.log(swiperRef)
+	// API so‘rovlar
+	const { data: teachersInformationId } = useFatch(`apimentors/${id}`, 'testing')
+	const { data: feedbak_video } = useFatch('apifeedback-mentors', 'feedback-mentors')
 
-	const [swiperInstance, setSwiperInstance] = useState(null)
-	const [isModalOpen, setIsModalOpen] = useState(false)
-	const videoRef = useRef(null)
-
-	const { data: teachersInformationId } = useFatch(
-		`apimentors/${id}`,
-		'testing'
-	)
-
-	const { data: mentors } = useFatch('apimentors', 'mentors')
-
-	console.log(mentors, 'mentors')
-
-	console.log(teachersInformationId, 'teacherInformationId')
+	const videosArray = Array.isArray(feedbak_video)
+		? feedbak_video
+		: Object.values(feedbak_video || {})
 
 	return (
 		<div className='lichTeacher pages_big_div'>
@@ -67,7 +61,7 @@ const LichTeacher = () => {
 								<p className='font-size-20'>Ustozlar</p>
 							</div>
 
-							{/* Teacher */}
+							{/* === Teacher === */}
 							{teachersInformationId && (
 								<div className='teacher_cont'>
 									<div className='teacher_img'>
@@ -80,6 +74,7 @@ const LichTeacher = () => {
 										<p className='font-size-24-600'>
 											{teachersInformationId?.description}
 										</p>
+
 										<div className='teacher_information'>
 											<div className='happy_students'>
 												<p className='font-size-18-600'>Mamnun o‘quvchilar</p>
@@ -104,8 +99,9 @@ const LichTeacher = () => {
 												<h2 className='font-size-40'>+43</h2>
 											</div>
 										</div>
-										{teachersInformationId.courses?.map(course => (
-											<p className='font-size-18-500 color_black'>
+
+										{teachersInformationId.courses?.map((course, idx) => (
+											<p key={idx} className='font-size-18-500 color_black'>
 												{course?.description}
 											</p>
 										))}
@@ -113,16 +109,13 @@ const LichTeacher = () => {
 								</div>
 							)}
 
-							{/* Teacher Portfolio */}
+							{/* === Portfolio === */}
 							{teachersInformationId?.portfolios && (
 								<div className='teacher_portfolio'>
 									<h1 className='font-size-48'>Portfolio</h1>
 									<div className='web_bar'>
 										{teachersInformationId.portfolios.map(portfolio => (
-											<div
-												key={portfolio.id}
-												className={`web_div_${portfolio.id} web_div`}
-											>
+											<div key={portfolio.id} className='web_div'>
 												<img
 													className='web_div_img'
 													src={portfolio.image}
@@ -140,7 +133,7 @@ const LichTeacher = () => {
 							)}
 						</div>
 
-						{/* Bitiruvchilarimiz ishlayotgan kompaniyalar */}
+						{/* === Companies === */}
 						<div className='background'>
 							<div className='max-width'>
 								<div className='work_Companies'>
@@ -163,104 +156,89 @@ const LichTeacher = () => {
 							</div>
 						</div>
 
+						{/* === Swiper: Feedback Videos === */}
 						<div className='max-width'>
-							{/* dars jarayoni */}
-							<div className='lesson_process'>
-								<h1 className='font-size-48'>Dars jarayoni</h1>
-								{/* ? pastdagi divga qo`yish kere bosilganda modal ochiladi  onClick={() => setIsModalOpen(true)} */}
-								<div className='process'>
-									{/* <img className="video_lesson" src={lesson_process} alt="" /> */}
-									{/*  */}
-									<video
-										className='video_lesson'
-										width='100%'
-										height={500}
-										controls
-										autoPlay
-										loop
-										muted
-										ref={videoRef}
-									>
-										<source src={lesson_video} type='video/mp4' />
-										Sizning brauzeringiz bu videoni qo‘llab-quvvatlamaydi.
-									</video>
-								</div>
-							</div>
+							<h1 className='font-size-48 h1-idea'>
+								O‘quvchilarning ustoz haqida fikri
+							</h1>
 
-							{/* Swiper */}
-							<div className='container'>
-								<h1 class='font-size-48 h1-idea'>
-									O`quvchilarning ustoz haqida fikri
-								</h1>
-								<Swiper
-									onSwiper={setSwiperInstance}
-									spaceBetween={30}
-									pagination={{ clickable: true }}
-									modules={[Pagination]}
-									className='mySwiper'
-									breakpoints={{
-										400: { slidesPerView: 1, spaceBetween: 10 },
-										768: { slidesPerView: 1, spaceBetween: 20 },
-										1024: { slidesPerView: 3, spaceBetween: 30 },
-									}}
-								>
-									{mentors?.map((mentorsInformations, index) => (
-										<SwiperSlide key={index}>
+							<Swiper
+								onSwiper={setSwiperInstance}
+								spaceBetween={30}
+								pagination={{ clickable: true }}
+								modules={[Pagination]}
+								className='mySwiper'
+								breakpoints={{
+									400: { slidesPerView: 1, spaceBetween: 10 },
+									768: { slidesPerView: 1, spaceBetween: 20 },
+									1024: { slidesPerView: 3, spaceBetween: 30 },
+								}}
+							>
+								{fikrlar.map((fikr, index) => {
+									const video = videosArray[index]
+									return (
+										<SwiperSlide key={index} className='swiper-slide'>
 											<div className='swiper_el'>
-												<img
-													src={mentorsInformations.image}
-													alt={mentorsInformations.first_name}
-												/>
+												<img src={fikr} alt={`Fikr ${index + 1}`} />
 												<p className='font-size-24 video_el_1'>
-													{mentorsInformations.first_name}{' '}
-													{mentorsInformations.last_name}
+													O‘quvchi {index + 1}
 												</p>
 												<p className='font-size-18 video_element'>
-													{mentorsInformations.description}
+													O‘quvchi fikri haqida qisqacha matn joylashadi
 												</p>
 												<button
-													onClick={() => setIsModalOpen(true)}
+													onClick={() => {
+														setActiveVideo(video?.video_url)
+														setIsModalOpen(true)
+													}}
 													className='play_button'
 												>
 													<i className='bx bx-play'></i>
 												</button>
 											</div>
 										</SwiperSlide>
-									))}
-								</Swiper>
+									)
+								})}
+							</Swiper>
 
-								<div className='buttons'>
-									<button
-										className='button_1'
-										onClick={() => swiperInstance?.slidePrev()}
-									>
-										<i className='bx bx-left-arrow-alt'></i>
-									</button>
-									<button
-										className='button_1'
-										onClick={() => swiperInstance?.slideNext()}
-									>
-										<i className='bx bx-right-arrow-alt'></i>
-									</button>
-								</div>
+							<div className='buttons'>
+								<button
+									className='button_1'
+									onClick={() => swiperInstance?.slidePrev()}
+								>
+									<i className='bx bx-left-arrow-alt'></i>
+								</button>
+								<button
+									className='button_1'
+									onClick={() => swiperInstance?.slideNext()}
+								>
+									<i className='bx bx-right-arrow-alt'></i>
+								</button>
 							</div>
 						</div>
 					</div>
 
-					{/* modal */}
+					{/* === Modal: Video from Backend === */}
 					<Modal
-						title='Bu videolar tez oradi saytga qo`yiladi'
 						open={isModalOpen}
-						onCancel={() => setIsModalOpen(false)}
+						onCancel={() => {
+							if (videoRef.current) videoRef.current.pause()
+							setIsModalOpen(false)
+							setActiveVideo(null)
+						}}
 						footer={null}
+						centered
+						width={800}
+						destroyOnClose
 					>
-						<div className='cont_a_i'>
-							<div className='icon_top'>
-								<p className='red'></p>
-								<p className='yellow'></p>
-								<p className='aqua'></p>
-							</div>
-							<i className='bx bx-cog'></i>
+						<div className='video'>
+							{activeVideo ? (
+								<video ref={videoRef} controls autoPlay width='100%'>
+									<source src={activeVideo} type='video/mp4' />
+								</video>
+							) : (
+								<p className='text-center'>Video topilmadi</p>
+							)}
 						</div>
 					</Modal>
 				</>
