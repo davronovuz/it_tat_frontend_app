@@ -22,7 +22,8 @@
 }
 .teacher_card > img {
 	width: 100%;
-	height: 350px;
+	max-height: 380px;
+	height: 100%;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -236,6 +237,15 @@ button > i {
 .button_1:hover {
 	background: #0056b3;
 	color: var(--white-color);
+}
+@media (max-width: 550px) {
+	.teacher_card > img{
+		max-height: 550px;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		object-fit: cover;
+	}
 }
 
 @media (max-width: 480px) {
