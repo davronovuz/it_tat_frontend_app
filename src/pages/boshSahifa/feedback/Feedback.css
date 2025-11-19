@@ -270,3 +270,7 @@ left: -30px;
 		/* padding: 0px; */
 	}
 }
+
+.feedback-title-2{
+	display: none;	
+}

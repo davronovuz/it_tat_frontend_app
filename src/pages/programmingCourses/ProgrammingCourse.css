@@ -232,9 +232,11 @@
 	color: #fff;
 }
 
-.statistica > h1 {
+.t-center > h1 {
 	margin: 50px 0px;
+	text-align: center;
 	color: var(--plus-blue-color);
+
 }
 .statistica_bar {
 	text-align: left;

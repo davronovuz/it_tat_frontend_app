@@ -31,8 +31,12 @@ const Feedback = () => {
 		<div className='background'>
 			<div className='max-width'>
 				<div className='feedback'>
-					<h2 className='font-size-40'>
+					<h2 className='font-size-40 feedback-title'>
 						Feedback, O‘quvchilar <br /> va ota-onalar fikrlari
+					</h2>
+					<h2 className='feedback-title-2'>
+						 O‘quvchilar muvofaqiyatlari
+
 					</h2>
 					<div className='container'>
 						<Swiper

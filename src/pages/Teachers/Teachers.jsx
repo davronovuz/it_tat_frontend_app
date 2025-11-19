@@ -16,6 +16,7 @@ import teacher1 from '../../assets/Shoxrux-ustoz.JPG'
 import belgiImage from '../../assets/teamBelgi.png'
 import teamImage from '../../assets/teamImage1.png'
 import useFatch from '../../components/useFatch'
+import Feedback from '../boshSahifa/feedback/Feedback'
 
 const images = [teacher1, teacher2, teacher3, teacher4]
 
@@ -40,8 +41,6 @@ const Teachers = () => {
 
 		return () => clearTimeout(timer)
 	}, [])
-
-	// const {id} = useParams()
 
 	// ? backend
 	const {
@@ -80,62 +79,10 @@ const Teachers = () => {
 							))}
 						</div>
 
-						<h1 className='font-size-48 swiper_title'>
-							O`quvchilar muvaffaqiyati
-						</h1>
+					<div className="oquvchilar-fikri">
 
-						<div className='container'>
-							<Swiper
-								onSwiper={setSwiperInstance}
-								spaceBetween={30}
-								pagination={{ clickable: true }}
-								modules={[Pagination]}
-								className='mySwiper'
-								breakpoints={{
-									400: { slidesPerView: 1, spaceBetween: 10 },
-									768: { slidesPerView: 1, spaceBetween: 20 },
-									1024: { slidesPerView: 3, spaceBetween: 30 },
-								}}
-							>
-								{teachersInformation?.map(teacher => (
-									<SwiperSlide key={teacher.id}>
-										<div className='swiper_el'>
-											<img
-												src={teacher.image}
-												alt={`Slide ${teacher.id + 1}`}
-											/>
-											<p className='font-size-24 video_el_1'>
-												{teacher.first_name}
-											</p>
-											<p className='font-size-18 video_element'>
-												{teacher.description}
-											</p>
-											<button
-												onClick={() => setIsModalOpen(true)}
-												className='play_button'
-											>
-												<i className='bx bx-play'></i>
-											</button>
-										</div>
-									</SwiperSlide>
-								))}
-							</Swiper>
-
-							<div className='buttons'>
-								<button
-									className='button_1'
-									onClick={() => swiperInstance?.slidePrev()}
-								>
-									<i className='bx bx-left-arrow-alt'></i>
-								</button>
-								<button
-									className='button_1'
-									onClick={() => swiperInstance?.slideNext()}
-								>
-									<i className='bx bx-right-arrow-alt'></i>
-								</button>
-							</div>
-						</div>
+					<Feedback/>
+					</div>
 					</div>
 
 					<Modal

@@ -22,8 +22,14 @@
 }
 .teacher_card > img {
 	width: 100%;
+	height: 350px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	object-fit: cover;
 	border-radius: 25px;
 }
+
 .teacher_card > :nth-child(2) {
 	padding: 10px 0px;
 	color: var(--minus-blue-color);
@@ -236,4 +242,13 @@ button > i {
 	.buttons {
 		padding-bottom: 20px;
 	}
+}
+
+.teachers .oquvchilar-fikri .feedback .feedback-title{
+	display: none;
+}
+.teachers .oquvchilar-fikri .feedback .feedback-title-2{
+	display: block;
+	font-size: 40px;
+	font-weight: 400;
 }
