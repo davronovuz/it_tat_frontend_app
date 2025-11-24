@@ -121,8 +121,9 @@ const ProgrammingCourse = () => {
 											{courseById?.duration_hours} soat
 										</h2>
 										<h2 className='font-size-40 course_inform_6_child'>
-											{courseById?.price_per_month} so`m
+  											{Number(courseById?.price_per_month).toLocaleString('uz-UZ')} so‘m
 										</h2>
+
 										<button
 											onClick={() => setIsModalOpen(true)}
 											className='course_inform_button res-none'
@@ -227,13 +228,13 @@ const ProgrammingCourse = () => {
 								</h2>
 								<div className='stats'>
 									<div className='stat-box'>
-										<h3 className='font-size-40'>200+ kompaniyalarga</h3>
+										<h3 className='font-size-40'>+10 kompaniyalarga</h3>
 										<p className='font-size-24'>
 											O‘zbekiston bozorida dasturchilar kerak
 										</p>
 									</div>
 									<div className='stat-box'>
-										<h3 className='font-size-40'>5 000 000 so‘m</h3>
+										<h3 className='font-size-40'>6 500 000 so‘m</h3>
 										<p className='font-size-24'>
 											O‘rtacha oylik ish haqi to‘lanadi.
 										</p>
@@ -266,9 +267,12 @@ const ProgrammingCourse = () => {
 
 					<div className='background_m_g'>
 						<div className='max-width'>
+							<div className="t-center">
+
 							<h1>
 								Darajaga qarab oylik <br /> statistikasi
 							</h1>
+							</div>
 							<div className='statistica_bar'>
 								{['Dunyo', "O'zbekiston"].map((region, idx) => (
 									<div
@@ -284,7 +288,7 @@ const ProgrammingCourse = () => {
 
 												const getSalary = value => {
 													if (!value || isNaN(value)) return '-'
-													return parseInt(value).toLocaleString() + ' $'
+													return parseInt(value).toLocaleString() + ' so`m'
 												}
 
 												if (region === "O'zbekiston") {

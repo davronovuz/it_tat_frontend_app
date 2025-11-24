@@ -1,20 +1,30 @@
-# --- build stage ---
+# Dockerfile (frontend)
+############################################################
+# Build stage
 FROM node:20-alpine AS build
 WORKDIR /app
 
-# lock-fayl bo'yicha toza o'rnatish
+# copy package manifests first for layer caching
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --silent
 
-# source kodni ko'chiramiz va prod build qilamiz (CRA -> build/)
+# copy rest and build
 COPY . .
 RUN npm run build
 
-# --- runtime stage ---
+############################################################
+# Production stage (nginx)
 FROM nginx:1.27-alpine
 
-# Nginx konfiguratsiyasi
+# remove default html (clean)
+RUN rm -rf /usr/share/nginx/html/*
+
+# copy custom nginx config (must be present next to Dockerfile)
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Build natijasini Nginx rootiga ko'chiramiz
+# copy built files from build stage
 COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+# use default nginx entrypoint and cmd

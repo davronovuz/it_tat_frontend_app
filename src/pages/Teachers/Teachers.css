@@ -22,8 +22,15 @@
 }
 .teacher_card > img {
 	width: 100%;
+	max-height: 380px;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	object-fit: cover;
 	border-radius: 25px;
 }
+
 .teacher_card > :nth-child(2) {
 	padding: 10px 0px;
 	color: var(--minus-blue-color);
@@ -231,9 +238,27 @@ button > i {
 	background: #0056b3;
 	color: var(--white-color);
 }
+@media (max-width: 550px) {
+	.teacher_card > img{
+		max-height: 550px;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		object-fit: cover;
+	}
+}
 
 @media (max-width: 480px) {
 	.buttons {
 		padding-bottom: 20px;
 	}
+}
+
+.teachers .oquvchilar-fikri .feedback .feedback-title{
+	display: none;
+}
+.teachers .oquvchilar-fikri .feedback .feedback-title-2{
+	display: block;
+	font-size: 40px;
+	font-weight: 400;
 }

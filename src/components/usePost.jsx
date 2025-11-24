@@ -6,7 +6,7 @@ const usePost = apiPost => {
 	return useMutation({
 		mutationFn: async obj => {
 			try {
-				const response = await axios.post(`https://ittat.uz/${apiPost}`, obj)
+				const response = await axios.post(`https://api.it-tat.uz/${apiPost}`, obj)
 				return response.data // Axios automatically parses JSON
 			} catch (error) {
 				throw new Error('Something went wrong!')

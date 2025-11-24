@@ -31,7 +31,7 @@ const Header = () => {
 		<>
 			<header>
 				<div className='p-4 hed_max'>
-					<img onClick={() => navigate('/')} src={logo_header} alt='logo' />
+					<img onClick={() => navigate('/')} src={logo_header} alt='header-logo' />
 
 					<ul>
 						<li>
