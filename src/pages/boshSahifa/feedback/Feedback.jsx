@@ -95,7 +95,7 @@ const Feedback = () => {
 													className='bx bx-x video-close'
 												></i>
 												{video && (
-													<video ref={videoRef} controls autoPlay>
+													<video className='res-vid' ref={videoRef} controls autoPlay>
 														<source src={video.video_url} type='video/mp4' />
 													</video>
 												)}
