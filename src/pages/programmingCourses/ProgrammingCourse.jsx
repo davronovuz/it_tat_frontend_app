@@ -6,8 +6,8 @@ import { toast, ToastContainer } from 'react-toastify'
 import * as Yup from 'yup'
 import Loading from '../../Loading'
 import info from '../../assets/info.png'
-import olx from '../../assets/olx.svg'
-import rabota from '../../assets/rabota.svg'
+import marcor from '../../assets/m.jpeg'
+import wwr from '../../assets/wwr.jpeg'
 import useFatch from '../../components/useFatch'
 import usePost from '../../components/usePost'
 import Result from '../boshSahifa/result/Result'
@@ -228,13 +228,13 @@ const ProgrammingCourse = () => {
 								</h2>
 								<div className='stats'>
 									<div className='stat-box'>
-										<h3 className='font-size-40'>+10 kompaniyalarga</h3>
+										<h3 className='font-size-40'>+100 kompaniyalarga</h3>
 										<p className='font-size-24'>
-											O‘zbekiston bozorida dasturchilar kerak
+											Dunyo bozorida dasturchilar kerak
 										</p>
 									</div>
 									<div className='stat-box'>
-										<h3 className='font-size-40'>6 500 000 so‘m</h3>
+										<h3 className='font-size-40'>70 500 000 so‘m</h3>
 										<p className='font-size-24'>
 											O‘rtacha oylik ish haqi to‘lanadi.
 										</p>
@@ -246,18 +246,19 @@ const ProgrammingCourse = () => {
 											src='https://upload.wikimedia.org/wikipedia/commons/7/79/HeadHunter_logo.png'
 											alt='hh.uz'
 										/>
-										<p className='font-size-32'>hh.uz web sayti ma'lumotlari</p>
+										<p className='font-size-32'>Head Hunter</p>
 									</div>
 									<div className='link-box'>
-										<img src={olx} alt='olx.uz' />
+										<img src={marcor} alt='olx.uz' />
 										<p className='font-size-32'>
-											olx.uz web sayti ma'lumotlari
+											Mercor
 										</p>
 									</div>
 									<div className='link-box'>
-										<img src={rabota} alt='rabota.uz' />
+										<img src={wwr} alt='rabota.uz' />
 										<p className='font-size-32'>
-											rabota.uz web sayti ma'lumotlari
+											WE WORK REMOTELY	
+
 										</p>
 									</div>
 								</div>

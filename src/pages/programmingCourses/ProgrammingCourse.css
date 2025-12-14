@@ -195,6 +195,7 @@
 	align-items: center;
 	gap: 15px;
 	margin-top: 20px;
+
 }
 
 .link-box {
@@ -202,12 +203,14 @@
 	align-items: center;
 	justify-content: flex-start;
 	gap: 10px;
-
+	margin: 0px 15px;
 	border-radius: 10px;
 }
 
+
+
 .link-box > img {
-	width: 70px;
+	/* width: 70px; */
 	height: 70px;
 }
 .link-box > p {

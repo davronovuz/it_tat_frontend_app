@@ -122,10 +122,8 @@ const Courses = () => {
 									<p className='dasturlash_6_oy font-size-16-600 display'>
 										{inform.duration_months} oy
 										<strong>
-											{inform.title === 'Foundation' ? (
-												<span className='font-size-14'>
-													amaliy talim mavjud emas
-												</span>
+											{inform.duration_months <= 3 ? (
+												<strong style={{ backgroundColor: 'white', border: 'none',}} ></strong>
 											) : (
 												<span>+1 amaliyot talimi</span>
 											)}
