@@ -26,7 +26,7 @@ menu > h2 {
   background-color: var(--plus-blue-color);
 }
 
-strong {
+strong > p {
  
   background-color: var(--minus-blue-color);
   color: var(--white-color);

@@ -106,6 +106,11 @@ const Courses = () => {
 		}
 	}
 
+	// ? styles
+	const styles = {
+  backgroundColor: 'transparent',
+};
+
 	return (
 		<div className='background_blue'>
 			<div className='max-width'>
@@ -123,9 +128,9 @@ const Courses = () => {
 										{inform.duration_months} oy
 										<strong>
 											{inform.duration_months <= 3 ? (
-												<strong style={{ backgroundColor: 'white', border: 'none',}} ></strong>
+												<p style={styles}></p>
 											) : (
-												<span>+1 amaliyot talimi</span>
+												<p>+1 amaliyot talimi</p>
 											)}
 										</strong>
 									</p>
