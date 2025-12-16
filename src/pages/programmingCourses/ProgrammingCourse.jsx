@@ -111,18 +111,44 @@ const ProgrammingCourse = () => {
 										</p>
 									</div>
 									<div className='course_inform'>
+										<div>
+											<p>
+												Kurs davomiyligi
+											</p>
 										<h2 className='font-size-40'>
 											{courseById?.duration_months} oy
 										</h2>
+										</div>
+										<div>
+											<p>
+												Haftada
+											</p>
 										<h2 className='font-size-40'>
 											{courseById?.weekly_hours} kun
 										</h2>
+										</div>
+										<div>
+											<p>
+												Necha soat
+											</p>
 										<h2 className='font-size-40'>
 											{courseById?.duration_hours} soat
 										</h2>
+										</div>
+
+										<div>
+
+											<p>
+												Kurs narxi
+											</p>
+
 										<h2 className='font-size-40 course_inform_6_child'>
-  											{Number(courseById?.price_per_month).toLocaleString('uz-UZ')} so‘m
+											{Number(courseById?.price_per_month)
+												.toString()
+												.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} so‘m
+
 										</h2>
+												</div>
 
 										<button
 											onClick={() => setIsModalOpen(true)}
@@ -157,11 +183,10 @@ const ProgrammingCourse = () => {
 									</p>
 									<br />
 									<input
-										className={`font-size-16 ${
-											name.trim() === '' && status === 'error'
+										className={`font-size-16 ${name.trim() === '' && status === 'error'
 												? 'input-error'
 												: ''
-										}`}
+											}`}
 										type='text'
 										placeholder='Sizning ismingiz'
 										value={name}
@@ -170,13 +195,12 @@ const ProgrammingCourse = () => {
 									/>
 									<br />
 									<input
-										className={`font-size-16 ${
-											phone.length === 13 && !phoneError
+										className={`font-size-16 ${phone.length === 13 && !phoneError
 												? 'bor-green'
 												: phone.length > 0
-												? 'bor-red'
-												: ''
-										}`}
+													? 'bor-red'
+													: ''
+											}`}
 										type='text'
 										placeholder='(+998901234567)'
 										value={phone}
@@ -224,7 +248,7 @@ const ProgrammingCourse = () => {
 						<div className='max-width'>
 							<div className='info-container'>
 								<h2 className=' font-size-40 title'>
-									IT bozorida dasturchilarga <br /> talab !
+									IT bozorida dasturchilarga <br /> talab !    ( dunyo miqqiyosida )
 								</h2>
 								<div className='stats'>
 									<div className='stat-box'>
@@ -257,7 +281,7 @@ const ProgrammingCourse = () => {
 									<div className='link-box'>
 										<img src={wwr} alt='rabota.uz' />
 										<p className='font-size-32'>
-											WE WORK REMOTELY	
+											WE WORK REMOTELY
 
 										</p>
 									</div>
@@ -270,9 +294,9 @@ const ProgrammingCourse = () => {
 						<div className='max-width'>
 							<div className="t-center">
 
-							<h1>
-								Darajaga qarab oylik <br /> statistikasi
-							</h1>
+								<h1>
+									Darajaga qarab oylik <br /> statistikasi
+								</h1>
 							</div>
 							<div className='statistica_bar'>
 								{['Dunyo', "O'zbekiston"].map((region, idx) => (
@@ -297,15 +321,15 @@ const ProgrammingCourse = () => {
 														level === 'Senior'
 															? getSalary(courseById?.uzb_senior_salary)
 															: level === 'Middle'
-															? getSalary(courseById?.uzb_middle_salary)
-															: getSalary(courseById?.uzb_junior_salary)
+																? getSalary(courseById?.uzb_middle_salary)
+																: getSalary(courseById?.uzb_junior_salary)
 												} else {
 													salary =
 														level === 'Senior'
 															? getSalary(courseById?.global_senior_salary)
 															: level === 'Middle'
-															? getSalary(courseById?.global_middle_salary)
-															: getSalary(courseById?.global_junior_salary)
+																? getSalary(courseById?.global_middle_salary)
+																: getSalary(courseById?.global_junior_salary)
 												}
 
 												return (
@@ -314,13 +338,12 @@ const ProgrammingCourse = () => {
 															<p className='font-size-20'>{level}</p>
 														</div>
 														<div
-															className={`bridge_box_1 ${
-																level === 'Middle'
+															className={`bridge_box_1 ${level === 'Middle'
 																	? 'bridge_box_2'
 																	: level === 'Senior'
-																	? 'bridge_box_3'
-																	: ''
-															}`}
+																		? 'bridge_box_3'
+																		: ''
+																}`}
 														>
 															<div>
 																<h3 className='font-size-20'>{salary}</h3>
@@ -328,8 +351,8 @@ const ProgrammingCourse = () => {
 																	{level === 'Senior'
 																		? 'Eng yuqori maosh'
 																		: level === 'Middle'
-																		? 'O‘rtacha maosh'
-																		: 'Eng past maosh'}
+																			? 'O‘rtacha maosh'
+																			: 'Eng past maosh'}
 																</p>
 															</div>
 														</div>
@@ -357,9 +380,8 @@ const ProgrammingCourse = () => {
 								bog'lanadi.
 							</p>
 							<input
-								className={`font-size-16 ${
-									name.trim() === '' ? 'input-error' : ''
-								}`}
+								className={`font-size-16 ${name.trim() === '' ? 'input-error' : ''
+									}`}
 								type='text'
 								placeholder='Ismingiz'
 								value={name}
@@ -367,15 +389,14 @@ const ProgrammingCourse = () => {
 							/>
 							<br />
 							<input
-								className={`font-size-16 ${
-									phoneError
+								className={`font-size-16 ${phoneError
 										? 'input-error'
 										: phone.length === 13
-										? 'bor-green'
-										: phone.length > 0
-										? 'bor-red'
-										: ''
-								}`}
+											? 'bor-green'
+											: phone.length > 0
+												? 'bor-red'
+												: ''
+									}`}
 								type='text'
 								placeholder='(+998901234567)'
 								value={phone}
