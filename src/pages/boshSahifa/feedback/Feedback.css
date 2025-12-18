@@ -196,13 +196,13 @@ width: 100% !important;
     content: '\ec8d';
     width: 40px;
     height: 40px;
-    font-size: 30px;
+    font-size: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 	position: absolute;
-	top: 15px;
-	left: -10px;
+	top: -60px;
+	left: -20px;
 }
 
 
@@ -231,16 +231,16 @@ width: 100% !important;
 
     }
 	.video > .bx-x:before {
-    content: '\ec8d';
+   content: '\ec8d';
     width: 40px;
     height: 40px;
-    font-size: 30px;
+    font-size: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
 	position: absolute;
-	top: 15px;
-	left: 10px;
+	top: -60px;
+	left: 20px;
 }
 
 
