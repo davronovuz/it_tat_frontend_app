@@ -1,9 +1,9 @@
-import alitalia from '../../../assets/alitalia.png'
-import axon from '../../../assets/axon.png'
-import expedia from '../../../assets/expedia.png'
-import jetstar from '../../../assets/jetstar.png'
+import mercor from '../../../assets/m.jpeg'
+import itTat from '../../../assets/logoSvg.svg'
+import nap from '../../../assets/nap.png'
+import itPark from '../../../assets/parkIt.png'
 import img_tat from '../../../assets/photo_tat.jpg'
-import qantas from '../../../assets/qoantas.png'
+import doWork from '../../../assets/doWork.jpg'
 
 import './WhereWeAre.css'
 const WhereWeAre = () => {
@@ -15,11 +15,11 @@ const WhereWeAre = () => {
 						Bizning o`quvchilarimiz <br /> qayerda ishlashadi
 					</h1>
 					<div className='work_menu'>
-						<img src={axon} alt='' />
-						<img src={jetstar} alt='' />
-						<img src={expedia} alt='' />
-						<img src={qantas} alt='' />
-						<img src={alitalia} alt='' />
+						<img src={itTat} alt='' />
+						<img src={itPark} alt='' />
+						<img src={mercor} alt='' />
+						<img src={nap} alt='' />
+						<img src={doWork} alt='' />
 					</div>
 					<div className='biz_qayerda_joylashganmiz'>
 						<h1 className='font-size-40'>Biz qayerda joylashganmiz</h1>

@@ -5,6 +5,15 @@
 	margin-top: 100px;
 	padding-bottom: 50px;
 }
+.work_menu > img{
+	/* width: 200px; */
+	height: 100px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	object-fit: cover;
+	margin: 10px 20px;
+}
 .biz_qayerda_joylashganmiz {
 	margin-top: 100px;
 }
