@@ -259,7 +259,21 @@ button > i {
 		padding-bottom: 20px;
 	}
 		.teacher_card > img{
-		max-height: 350px;
+		max-height: 470px;
+		
+	}
+}
+@media (max-width: 430px) {
+	
+		.teacher_card > img{
+		max-height: 400px;
+		
+	}
+}
+@media (max-width: 375px) {
+	
+		.teacher_card > img{
+		max-height: 370px;
 		
 	}
 }
