@@ -80,7 +80,7 @@ const Kurslar = () => {
                     {/* O‘ng qism */}
                     <div className='grid-item max_div'>
                       <div className='display'>
-                        <h2 className='font-size-20'>{mentor.description}</h2>
+                        <h2 className='font-size-25'> {mentor.description.slice(0, -12)} </h2>
 
                         {firstCourse && (
                           <MuiButton

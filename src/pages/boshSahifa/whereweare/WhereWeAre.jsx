@@ -1,12 +1,21 @@
-import mercor from '../../../assets/m.jpeg'
+import mercor from '../../../assets/freelance.jpg'
 import itTat from '../../../assets/logoSvg.svg'
-import nap from '../../../assets/nap.png'
+import nap from '../../../assets/remove-nat.png'
 import itPark from '../../../assets/parkIt.png'
 import img_tat from '../../../assets/photo_tat.jpg'
-import doWork from '../../../assets/doWork.jpg'
+import texnomart from '../../../assets/tex.png'
+import doWork from '../../../assets/union.jpg'
+import designStudio from '../../../assets/design-studio.png'
+
 
 import './WhereWeAre.css'
 const WhereWeAre = () => {
+
+	const unionStyle = {
+		width: '150px',
+		height:'150px',
+		borderRadius: '50%',
+	}
 	return (
 		<div className='background'>
 			<div className='max-width'>
@@ -15,11 +24,13 @@ const WhereWeAre = () => {
 						Bizning o`quvchilarimiz <br /> qayerda ishlashadi
 					</h1>
 					<div className='work_menu'>
-						<img src={itTat} alt='' />
-						<img src={itPark} alt='' />
 						<img src={mercor} alt='' />
+						<img src={itPark} alt='' />
+						<img src={itTat} alt='' />
 						<img src={nap} alt='' />
-						<img src={doWork} alt='' />
+						<img src={doWork} alt='' style={unionStyle} />
+						<img src={texnomart} alt="texnomart" />
+						<img src={designStudio} alt="design-studio" />
 					</div>
 					<div className='biz_qayerda_joylashganmiz'>
 						<h1 className='font-size-40'>Biz qayerda joylashganmiz</h1>
