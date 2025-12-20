@@ -39,7 +39,7 @@
 .teacher_card > .button {
 	border: 1px solid var(--minus-blue-color);
 	border-radius: 8px;
-	margin-top: 15px;
+	margin-top: 5px;
 }
 .teacher_card > .button:hover {
 	background-color: var(--minus-blue-color);
@@ -240,17 +240,27 @@ button > i {
 }
 @media (max-width: 550px) {
 	.teacher_card > img{
-		max-height: 550px;
+		max-height: 450px;
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
 		object-fit: cover;
 	}
 }
+@media (max-width: 410px) {
+	.teacher_card > img{
+		max-height: 400px;
+		
+	}
+}
 
 @media (max-width: 480px) {
 	.buttons {
 		padding-bottom: 20px;
+	}
+		.teacher_card > img{
+		max-height: 350px;
+		
 	}
 }
 
