@@ -11,11 +11,14 @@ import Loading from '../../Loading'
 import useFatch from '../../components/useFatch'
 
 // ? images
-import alitalia from '../../assets/alitalia.png'
-import axon from '../../assets/axon.png'
-import expedia from '../../assets/expedia.png'
-import jetstar from '../../assets/jetstar.png'
-import qantas from '../../assets/qoantas.png'
+import mercor from '../../assets/freelance.jpg'
+import itTat from '../../assets/logoSvg.svg'
+import nap from '../../assets/remove-nat.png'
+import itPark from '../../assets/parkIt.png'
+// import img_tat from '../../assets/photo_tat.jpg'
+import texnomart from '../../assets/tex.png'
+import doWork from '../../assets/union.jpg'
+import designStudio from '../../assets/design-studio.png'
 
 import fikrImgOne from '../../assets/oquvchi-bir.png'
 import fikrImgTwoo from '../../assets/oquvchi-ikki.png'
@@ -47,6 +50,12 @@ const LichTeacher = () => {
 	const videosArray = Array.isArray(feedbak_video)
 		? feedbak_video
 		: Object.values(feedbak_video || {})
+
+			const unionStyle = {
+		width: '150px',
+		height:'150px',
+		borderRadius: '50%',
+	}
 
 	return (
 		<div className='lichTeacher pages_big_div'>
@@ -145,13 +154,16 @@ const LichTeacher = () => {
 										talabalarni suhbatga tayyorlaymiz va sizni hamkor
 										kompaniyalarga tavsiya qilamiz.
 									</p>
-									<div className='work_companies_logo'>
-										<img src={axon} alt='' />
-										<img src={jetstar} alt='' />
-										<img src={expedia} alt='' />
-										<img src={qantas} alt='' />
-										<img src={alitalia} alt='' />
-									</div>
+									<br />
+									<div className='work_menu'>
+						<img src={mercor} alt='' />
+						<img src={itPark} alt='' />
+						<img src={itTat} alt='' />
+						<img src={nap} alt='' />
+						<img src={doWork} alt='' style={unionStyle} />
+						<img src={texnomart} alt="texnomart" />
+						<img src={designStudio} alt="design-studio" />
+					</div>
 								</div>
 							</div>
 						</div>

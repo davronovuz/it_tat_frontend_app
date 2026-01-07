@@ -25,11 +25,21 @@
     "web-vitals": "^4.2.4",
     "yup": "^1.6.1"
   },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "svg-parser": "^2.0.4",
+    "react-snap": "^1.23.0"   
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",   
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "reactSnap": {
+    "include": ["/"],  
+    "source": "build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,9 +58,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "svg-parser": "^2.0.4"
   }
 }

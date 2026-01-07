@@ -20,7 +20,6 @@ const Registration = () => {
 	const { data: courses } = useFatch('apicourses')
 	const postUser = usePost('apiregistrations/')
 	const [courseOptions, setCourseOptions] = useState([])
-
 	// 🔁 Kurslarni Select formatiga tayyorlash
 	useEffect(() => {
 		if (courses && Array.isArray(courses)) {

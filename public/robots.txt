@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /login
+Disallow: /register
+Disallow: /api
+Disallow: /test
+
+Sitemap: https://it-tat.uz/sitemap.xml
