@@ -25,24 +25,11 @@
     "web-vitals": "^4.2.4",
     "yup": "^1.6.1"
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@svgr/webpack": "^8.1.0",
-    "react-snap": "^1.23.0",
-    "svg-parser": "^2.0.4"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "reactSnap": {
-    "include": [
-      "/"
-    ],
-    "source": "build"
   },
   "eslintConfig": {
     "extends": [

@@ -1,50 +1,47 @@
 // src/App.jsx
-import { Suspense, useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
-import { HelmetProvider } from 'react-helmet-async'
+import { Suspense, useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-import ScrollToTop from './components/ScrollToTop'
-import Loading from './Loading'
-import Header from './pages/boshSahifa/header/Header'
-import Footer from './pages/boshSahifa/footer/Footer'
+import ScrollToTop from './components/ScrollToTop';
+import Loading from './Loading';
+import Footer from './pages/boshSahifa/footer/Footer';
+import Header from './pages/boshSahifa/header/Header';
 
-// Pages
-import BoshSahifa from './pages/boshSahifa/BoshSahifa'
-import Kurslar from './pages/coursesAndPrice/Kurslar'
-import Teachers from './pages/Teachers/Teachers'
-import LichTeacher from './pages/lichTeachers/LichTeacher'
-import OnlineCourses from './pages/onlineCourses/OnlineCourses'
-import ProgrammingCourse from './pages/programmingCourses/ProgrammingCourse'
-import Registration from './pages/boshSahifa/registration/Registration'
-import NotFound from './pages/notFound/NotFound'
+import BoshSahifa from './pages/boshSahifa/BoshSahifa';
+import Registration from './pages/boshSahifa/registration/Registration';
+import Kurslar from './pages/coursesAndPrice/Kurslar';
+import LichTeacher from './pages/lichTeachers/LichTeacher';
+import NotFound from './pages/notFound/NotFound';
+import OnlineCourses from './pages/onlineCourses/OnlineCourses';
+import ProgrammingCourse from './pages/programmingCourses/ProgrammingCourse';
+import Teachers from './pages/Teachers/Teachers';
 
-// Styles
-import 'antd/dist/reset.css'
-import 'react-toastify/dist/ReactToastify.css'
-import './App.css'
+import 'antd/dist/reset.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
 function App() {
-  const location = useLocation()
+  const location = useLocation();
 
-  // Route o‘zgarganda tepaga chiqish
+  // Sahifa o'zgarganda yuqoriga ko'tarish (ScrollToTop bor bo'lsa, buni olib tashlashingiz ham mumkin)
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [location.pathname])
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
 
   return (
-    <HelmetProvider>
+    <>
       <ScrollToTop />
       <Header />
 
       <Suspense fallback={<Loading />}>
         <Routes>
           <Route path="/" element={<BoshSahifa />} />
-          <Route path="/kurslar" element={<Kurslar />} />
-          <Route path="/kurslar/kurs/:id" element={<ProgrammingCourse />} />
           <Route path="/ustozlar" element={<Teachers />} />
-          <Route path="/ustozlar/ustoz/:id" element={<LichTeacher />} />
+          <Route path="/kurslar" element={<Kurslar />} />
           <Route path="/online-kurslar" element={<OnlineCourses />} />
+          <Route path="/ustozlar/ustoz/:id" element={<LichTeacher />} />
+          <Route path="/kurslar/kurs/:id" element={<ProgrammingCourse />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -62,8 +59,8 @@ function App() {
         pauseOnHover
         theme="light"
       />
-    </HelmetProvider>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;

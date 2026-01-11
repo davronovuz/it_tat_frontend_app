@@ -5,6 +5,7 @@
 }
 .main-wrapper {
 	min-height: 100vh;
+	/* overflow-y: auto; */
 }
 
 /* Bu esa body ni tozalaydi */

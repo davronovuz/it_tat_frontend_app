@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import  Header  from '../boshSahifa/header/Header';
+
 
 import img_1 from '../../assets/frontend.png'; // ? images
 import img_2 from '../../assets/robo.png'; // ? images
