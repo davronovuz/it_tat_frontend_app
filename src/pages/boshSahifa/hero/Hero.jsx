@@ -113,15 +113,18 @@ const Header = () => {
 						<img src={hero_img} alt='hero' />
 
 						<div className='courses'>
+							<div className="buttons-hero">
+
 							{courseList?.map(course => (
 								<button
-									key={course.id}
-									onClick={() => navigate(`/kurslar/kurs/${course.id}`)}
-									className='font-size-18-500'
+								key={course.id}
+								onClick={() => navigate(`/kurslar/kurs/${course.id}`)}
+								className='font-size-18-500'
 								>
 									{course.title}
 								</button>
 							))}
+							</div>
 						</div>
 
 						<div className='bepul_consultatsya'>

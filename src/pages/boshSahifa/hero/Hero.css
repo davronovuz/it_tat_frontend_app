@@ -31,11 +31,12 @@
 	height: 380px;
 	border-radius: 12px;
 	text-align: start;
-	padding: 1rem;
+	padding: 10px 15px;
+	display: flex;
+	align-items: flex-end;
+
 }
-.courses > :first-child {
-	margin-top: 80px;
-}
+
 
 .courses button {
 	padding: 3px 12px;

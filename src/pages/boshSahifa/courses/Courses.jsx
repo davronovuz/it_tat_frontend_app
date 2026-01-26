@@ -108,8 +108,8 @@ const Courses = () => {
 
 	// ? styles
 	const styles = {
-  backgroundColor: 'transparent',
-};
+		backgroundColor: 'transparent',
+	};
 
 	return (
 		<div className='background_blue'>
@@ -156,7 +156,7 @@ const Courses = () => {
 										></i>
 									</div>
 									<div>
-										<img
+										<img className={`item${inform.id}`}
 											src={inform.image}
 											alt={inform.title || 'Kurs rasmi'}
 										/>
@@ -180,9 +180,8 @@ const Courses = () => {
 							</p>
 
 							<input
-								className={`font-size-16 ${
-									name.trim() === '' ? 'input-error' : ''
-								}`}
+								className={`font-size-16 ${name.trim() === '' ? 'input-error' : ''
+									}`}
 								type='text'
 								placeholder='Ismingiz'
 								value={name}
@@ -191,15 +190,14 @@ const Courses = () => {
 							<br />
 
 							<input
-								className={`font-size-16 ${
-									phoneError
-										? 'input-error'
-										: phone.length === 13
+								className={`font-size-16 ${phoneError
+									? 'input-error'
+									: phone.length === 13
 										? 'bor-green'
 										: phone.length > 0
-										? 'bor-red'
-										: ''
-								}`}
+											? 'bor-red'
+											: ''
+									}`}
 								type='text'
 								placeholder='(+998901234567)'
 								value={phone}

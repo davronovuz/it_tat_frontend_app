@@ -98,6 +98,9 @@ menu img {
   right: -130px;
   bottom: -110px;
 }
+.item9 .item9{
+  transform: scale(3);
+}
 
 .center {
   display: flex;
